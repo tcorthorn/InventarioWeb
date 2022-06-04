@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Salidas</h1>
+
+    {% if salida_list %}
+    <ul>
+
+      {% for salida in salida_list %}
+      <li>
+        {{ salida.fecha}} {{ salida.sku }} Cantidad : {{salida.cantidad}} Destino : </strong> {% for destino in salida.destino.all %} {{ destino }}{% if not forloop.last %}, {% endif %}{% endfor %}</strong> 
+      </li>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no productos in the library.</p>
+    {% endif %} 
+{% endblock %}

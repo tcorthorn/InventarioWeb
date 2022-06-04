@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>Wareclouds</h2>
+
+    {% if salida_list %}
+    <ul>
+
+      {% for salida in salida_list %}
+      <li>
+        <br>
+       
+        <strong>Fecha  :</strong> {% for destino in salida.cliente.all %} {{ destino }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No hay vestidos arrendados.</p>
+    {% endif %} 
+{% endblock %}

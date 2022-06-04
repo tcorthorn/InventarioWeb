@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Ingresos</h1>
+
+    {% if ingreso_list %}
+    <ul>
+
+      {% for ingreso in ingreso_list %}
+      <li>
+        {{ ingreso.fecha}} {{ ingreso.sku }}</a> Cantidad : {{ingreso.cantidad}}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %} 
+{% endblock %}

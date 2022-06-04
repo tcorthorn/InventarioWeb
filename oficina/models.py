@@ -4,7 +4,7 @@ from django.urls import reverse
 from datetime import date
 
 class Proveedor(models.Model):
-    nombre = models.CharField(max_length=10, default='Otro',null=True,blank=True)
+    nombre = models.CharField(max_length=10, default='Otro', null=True, blank=True)
     
     def __str__(self):
         return self.nombre
@@ -61,7 +61,7 @@ class Salida(models.Model):
     sku = models.CharField(max_length=7)
     cantidad = models.IntegerField()
     destino = models.ManyToManyField(Destino) 
-    comentario = models.CharField(max_length=200)
+    comentario = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.sku
