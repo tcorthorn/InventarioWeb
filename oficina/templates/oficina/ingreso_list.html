@@ -1,14 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Ingresos</h1>
+    <h1 style="color:blueviolet"> Ingresos</h1>
 
     {% if ingreso_list %}
     <ul>
 
       {% for ingreso in ingreso_list %}
-      <li>
-        {{ ingreso.fecha}} {{ ingreso.sku }}</a> Cantidad : {{ingreso.cantidad}}
+      <li style="color:darkblue">
+        {{ ingreso.fecha}} &nbsp &nbsp &nbsp &nbsp {{ ingreso.sku }}</a>  &nbsp &nbsp &nbsp &nbsp Cantidad : {{ingreso.cantidad}}
       </li>
       {% endfor %}
 

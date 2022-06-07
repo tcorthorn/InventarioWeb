@@ -3,20 +3,26 @@
 {% load static %}
 
 {% block content %}
-<h2>Administración de Inventarios <em>Borangora</em> </h2>
+<h2 style ="color:rgb(105, 105, 226)"> Administración de Inventarios <em>Borangora</em> </h2>
 
-  <p>Sitio Administración de <em>Borangora</em>, para manejo de inventarios</p>
+  <p "style ="color:blue">Sitio Administración de <em>Borangora</em>, para manejo de inventarios</p>
 
-<h3>Datos Actualizados :</h3>
+<h3 style ="color:rgb(14, 14, 201)">Datos Actualizados :</h3>
 
   <p>La Tienda tiene hoy lo siguiente:</p>
   <ul>
-    <li><strong>Movimientos:</strong> {{ ingresos }}</li>
+    <li style ="color:rgb(12, 12, 148)"><strong>Movimientos:</strong> {{ ingresos }}</li>
     <br>
     <li><strong>Ingresos:</strong> {{ num_ingresos }}</li>
-    <li><strong>Salidas:</strong> {{ num_salidas }}</li>
+    <li><strong>Despachos:</strong> {{ num_salidas }}</li>
     <br>
     <li><strong>Stock de productos en oficina:</strong> {{ saldo }}</li>
+    <br>
+    <li><strong>{{ total_ingresos }} </strong> </li>
+    <li><strong>{{ total_salidas }} </strong> </li>
+    <br>
+    <li><strong>Stock de V000001 en Oficina = </strong> {{ stock }}</li>
+
   </ul>
 
 {% endblock %}

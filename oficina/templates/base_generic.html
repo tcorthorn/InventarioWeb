@@ -14,7 +14,7 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border-3 border-bottom boder-primary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-3 border-bottom boder-primary" style="color:blue">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'index' %}">Borangora</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,12 +27,12 @@
             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
    
           
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" style="color:blue">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Ingresos
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'ingresos' %}">Todos</a></li>
+              <li style="color:blue"><a class="dropdown-item" href="{% url 'ingresos' %}">Todos</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Por producto</a></li>
               <li><a class="dropdown-item" href="#">Por fecha</a></li>
@@ -44,19 +44,18 @@
             </ul>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" >
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Salidas
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"  style="color:blue">
               <li><a class="dropdown-item" href="{% url 'salidas' %}">Todos</a></li>
-              <li><hr class="dropdown-divider"{% url 'wareclouds' %}"></li>
-              <li><a class="dropdown-item" href="#">Wareclouds</a></li>
-              <li><a class="dropdown-item" href="#">Casa Moda</a></li>
+              <li><a class="dropdown-item" href="{% url 'wareclouds' %}">Wareclouds</a></li>
+              <li><a class="dropdown-item" href="{% url 'casamoda' %}">Casa Moda</a></li>
+              <li><a class="dropdown-item" href="{% url 'aura' %}">Aura</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Casa de Aura</a></li>
-              <li><a class="dropdown-item" href="#">Envíos directos</a></li>
-              <li><a class="dropdown-item" href="#">Otros</a></li>
+              <li><a class="dropdown-item" href="{% url 'directo' %}">Envíos directos</a></li>
+              <li><a class="dropdown-item" href="{% url 'otro' %}">Otros</a></li>
             </ul>
           </li>
           

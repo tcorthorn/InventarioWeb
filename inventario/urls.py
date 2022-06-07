@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('oficina/', include('oficina.urls')),
+    path('home/', include('oficina.urls')),
     path('', RedirectView.as_view(url='/home/', permanent=True)),
 ]
 
