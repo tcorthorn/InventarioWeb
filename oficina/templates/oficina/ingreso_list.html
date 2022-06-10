@@ -8,7 +8,14 @@
 
       {% for ingreso in ingreso_list %}
       <li style="color:darkblue">
-        {{ ingreso.fecha}} &nbsp &nbsp &nbsp &nbsp {{ ingreso.sku }}</a>  &nbsp &nbsp &nbsp &nbsp Cantidad : {{ingreso.cantidad}}
+      <h5>
+        {{ ingreso.creado}} &nbsp &nbsp &nbsp &nbsp  
+        {% for sku in ingreso.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a>  &nbsp &nbsp &nbsp &nbsp 
+        {% for sku in ingreso.sku.all %} {{ catalogo__sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a>  &nbsp &nbsp &nbsp &nbsp 
+        
+        Cantidad : {{ingreso.cantidad}}
+
+      </h5>
       </li>
       {% endfor %}
 

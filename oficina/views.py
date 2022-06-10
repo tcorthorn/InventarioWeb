@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.db.models import Avg, Sum
-
-
 from .models import Proveedor, Ingreso, Salida
 from django.views import generic
 from django.db.models import Count, F
@@ -17,15 +15,16 @@ def index(request):
     num_salidas=Salida.objects.all().count()
     total_salidas = Salida.objects.all().aggregate(Total_productos_enviados = Sum('cantidad'))
 
-    stock = Salida.objects.filter(sku="V000001").aggregate(Sum('cantidad'))
+    sku = Salida.objects.filter(sku="1").aggregate(Sum('cantidad'))
 
+    uno =Salida.sku
    
    
     # Renderiza la plantilla
     return render(
         request,
         'index.html',
-        context={'num_ingresos':num_ingresos,'num_salidas':num_salidas,'total_ingresos':total_ingresos,'total_salidas':total_salidas, 'stock': stock },
+        context={'num_ingresos':num_ingresos,'num_salidas':num_salidas,'total_ingresos':total_ingresos,'total_salidas':total_salidas, 'sku': sku,'uno':uno},
     )
 
 

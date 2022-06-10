@@ -99,9 +99,9 @@
       {% block content %}{% endblock %}
 
 
-{% block pagination %}
-  {% if is_paginated %}
-      <div class="pagination">
+     {% block pagination %}
+       {% if is_paginated %}
+        <div class="pagination">
           <span class="page-links">
               {% if page_obj.has_previous %}
                   <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">anterior</a>
@@ -113,9 +113,9 @@
                   <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">siguiente</a>
               {% endif %}
           </span>
-      </div>
-  {% endif %}
-{% endblock %} 
+        </div>
+       {% endif %}
+      {% endblock %} 
       </div>
     </div>
 

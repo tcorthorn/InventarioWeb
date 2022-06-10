@@ -8,10 +8,11 @@
 
       {% for salida in salida_list %}
       <li style="color:rgb(30, 30, 215)">
-        <br>
+      <h5>
        
-        {{ salida.fecha}} &nbsp &nbsp &nbsp &nbsp {{ salida.sku }} &nbsp &nbsp &nbsp &nbsp Cantidad : {{salida.cantidad}} 
+        {{ salida.creado}} &nbsp &nbsp &nbsp &nbsp {% for sku in salida.sku.all %} {{ sku }} {% if not forloop.last %}, {% endif %}{% endfor %}</a>  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp Cantidad : {{salida.cantidad}} 
         
+      </h5>
       </li>
       {% endfor %}
 
