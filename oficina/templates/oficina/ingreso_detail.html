@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Detalle Ingresos </h1>
+  <br>
+  <p><strong>Creado</strong> {{ ingreso.creado }}</p>
+  
+  <p><strong>Sku:</strong> <a href="{% url 'detalle-sku' ingreso.codigo.pk %}">{{ ingreso.sku }}</a></p>
+ 
+  <h5>Historial </h5>
+    
+  {% for copy in sku.ingreso_set.all %}
+  <hr>
+ 
+ 
+  <p><strong>Fecha inicio :</strong> {{ copy.creado }}</p>
+  <p><strong>Fecha que devolvió:</strong> {{copy.categoria}}</p>
+  <p><strong>Dato creado:</strong> {{copy.producto}}</p>
+  <p><strong>Dato modificado:</strong> {{copy.sku}}</p>
+
+  {% endfor %}
+  
+{% endblock %}

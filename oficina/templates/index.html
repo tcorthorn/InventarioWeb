@@ -18,10 +18,12 @@
     <br>
     <li><strong>Stock de productos en oficina:</strong> {{ saldo }}</li>
     <br>
-    <li><strong>{{ total_ingresos }} </strong> </li>
-    <li><strong>{{ total_salidas }} </strong> </li>
-    <br>
-    <li><strong>Stock de  {% for sku in salida.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %} en Oficina = </strong> {{ stock }}</li>
+   
+    <li><strong>Total productos ingresados  : {{ ingresos_totales }} </strong> </li>
+    
+    <li><strong>Total productos despachados  : {{ salidas_totales }} </strong> </li>
+
+    <li><strong>Stock de productos en Oficina   : =  {{ stock }} </strong> </li>
 
   </ul>
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Avg, Sum
-from .models import Proveedor, Ingreso, Salida
+from .models import Proveedor, Ingreso, Salida, Sku
 from django.views import generic
 from django.db.models import Count, F
 def index(request):
@@ -10,24 +10,32 @@ def index(request):
     # Genera contadores de algunos de los objetos principales
 
     num_ingresos=Ingreso.objects.all().count()
-    total_ingresos=Ingreso.objects.all().aggregate(Total_productos_ingresados = Sum('cantidad'))
-
     num_salidas=Salida.objects.all().count()
-    total_salidas = Salida.objects.all().aggregate(Total_productos_enviados = Sum('cantidad'))
 
-    sku = Salida.objects.filter(sku="1").aggregate(Sum('cantidad'))
+    ingresos=Ingreso.objects.all()
+    ingresos_totales=sum(ingresos.values_list('cantidad',flat=True))
 
-    uno =Salida.sku
+    salidas=Salida.objects.all()
+    salidas_totales=sum(salidas.values_list('cantidad',flat=True))
+
+    stock= ingresos_totales - salidas_totales
+    
+    # total_ingresos=Ingreso.objects.all().aggregate(Total_ingresados = Sum('cantidad'))
+    # total_salidas = Salida.objects.all().aggregate(Total_productos_enviados = Sum('cantidad'))
+
+   
    
    
     # Renderiza la plantilla
     return render(
         request,
         'index.html',
-        context={'num_ingresos':num_ingresos,'num_salidas':num_salidas,'total_ingresos':total_ingresos,'total_salidas':total_salidas, 'sku': sku,'uno':uno},
+        context={'num_ingresos':num_ingresos,'num_salidas':num_salidas,'salidas_totales':salidas_totales, 'ingresos_totales':ingresos_totales, 'stock':stock},
     )
 
-
+class SkuListView(generic.ListView):
+    model = Sku
+    paginate_by = 10
 
 class IngresoListView(generic.ListView):
     model = Ingreso
@@ -66,3 +74,20 @@ class OtroListView(generic.ListView):
     paginate_by = 10
     queryset = Salida.objects.all().filter(destino__icontains="Otro") 
     template_name = 'oficina/otro_list.html'  # Specify your own template name/location 
+
+
+
+
+# Detalle de la Clase
+
+class IngresoDetailView(generic.DetailView):
+    model = Ingreso
+    paginate_by = 10
+
+class SalidaDetailView(generic.DetailView):
+    model = Salida
+    paginate_by = 10
+
+class SkuDetailView(generic.DetailView):
+    model = Sku
+    paginate_by = 10

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Proveedor, Catalogo, Ingreso, Salida
+from .models import Proveedor, Sku, Ingreso, Salida
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from datetime import date
@@ -7,7 +7,7 @@ from datetime import date
 class InventResource(resources.ModelResource):
     class Meta:
         model = Proveedor
-        model =Catalogo
+        model =Sku
         model = Ingreso
         model = Salida
      
@@ -18,11 +18,11 @@ class ProveedorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     resources_class = Proveedor
     search_fields = ("nombre", )
     
-@admin.register(Catalogo)
-class CatalogoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ('creado','sku', 'categoria','producto')
+@admin.register(Sku)
+class SkuAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ('creado','codigo', 'categoria','producto')
     list_filter = ('categoria',)
-    resources_class = Catalogo
+    resources_class = Sku
     search_fields = ("categoria", )
 
 @admin.register(Ingreso)

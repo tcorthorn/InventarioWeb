@@ -10,8 +10,9 @@
       <li style="color:darkblue">
       <h5>
         {{ ingreso.creado}} &nbsp &nbsp &nbsp &nbsp  
-        {% for sku in ingreso.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a>  &nbsp &nbsp &nbsp &nbsp 
-        {% for sku in ingreso.sku.all %} {{ catalogo__sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a>  &nbsp &nbsp &nbsp &nbsp 
+      
+        <a href="{{ ingreso.get_absolute_url }}">{% for sku in salida.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a> ({% for sku in salida.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %})
+       
         
         Cantidad : {{ingreso.cantidad}}
 

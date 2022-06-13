@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+    <h1 style ="color:rgb(105, 105, 226)">Catalogo</h1>
+    <br>
+    {% if sku_list %}
+    <ul>
+
+      {% for sku in sku_list %}
+      <li style="color:darkblue">
+        <h5>
+        {{ sku.creado}} &nbsp &nbsp &nbsp &nbsp 
+        
+        {{ sku.codigo}} &nbsp &nbsp &nbsp &nbsp 
+
+        {{ sku.categoria}} &nbsp &nbsp &nbsp &nbsp 
+
+        {{ sku.producto}} &nbsp &nbsp &nbsp &nbsp 
+
+        </h5>
+      </li>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No hay salidas de productos.</p>
+    {% endif %} 
+ 
+{% endblock %}
