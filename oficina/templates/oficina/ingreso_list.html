@@ -1,27 +1,25 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1 style="color:blueviolet"> Ingresos</h1>
-
+    <h2 style="color:blueviolet"> Ingresos</h2>
+    <br>
     {% if ingreso_list %}
     <ul>
 
       {% for ingreso in ingreso_list %}
       <li style="color:darkblue">
       <h5>
-        {{ ingreso.creado}} &nbsp &nbsp &nbsp &nbsp  
-      
-        <a href="{{ ingreso.get_absolute_url }}">{% for sku in salida.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a> ({% for sku in salida.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %})
-       
-        
-        Cantidad : {{ingreso.cantidad}}
+        {{ ingreso.creado}} &nbsp &nbsp &nbsp &nbsp 
 
+        <a href="{% url 'detalle-sku' ingreso.sku.pk %}">{{ ingreso.sku }}</a> &nbsp &nbsp
+       
+        Cantidad : {{ingreso.cantidad}}
       </h5>
       </li>
       {% endfor %}
 
     </ul>
     {% else %}
-      <p>There are no books in the library.</p>
+      <p>There are no Ingresos in the library.</p>
     {% endif %} 
 {% endblock %}

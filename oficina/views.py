@@ -24,8 +24,6 @@ def index(request):
     # total_salidas = Salida.objects.all().aggregate(Total_productos_enviados = Sum('cantidad'))
 
    
-   
-   
     # Renderiza la plantilla
     return render(
         request,
@@ -74,8 +72,6 @@ class OtroListView(generic.ListView):
     paginate_by = 10
     queryset = Salida.objects.all().filter(destino__icontains="Otro") 
     template_name = 'oficina/otro_list.html'  # Specify your own template name/location 
-
-
 
 
 # Detalle de la Clase

@@ -9,8 +9,6 @@ class Proveedor(models.Model):
     nombre = models.CharField(max_length=10, default='Otro', null=True, blank=True)
     comentario = models.CharField(max_length=200, null=True,blank=True )
     
- 
-    
     def __str__(self):
         return self.nombre
     def get_absolute_url(self):
@@ -50,9 +48,9 @@ class Sku(models.Model):
 
 class Ingreso(models.Model):
     creado= models.DateField(auto_now_add=True)
-    sku = models.ManyToManyField(Sku)
+    sku =  models.ForeignKey(Sku, on_delete=models.SET_NULL, null= True)
     cantidad = models.IntegerField()
-    proveedor = models.ManyToManyField(Proveedor) 
+    proveedor =  models.ForeignKey(Proveedor,  on_delete=models.SET_NULL, null= True)
     comentario = models.CharField(max_length=200, null=True,blank=True , default='Comentario')
 
     def __str__(self):
@@ -75,7 +73,7 @@ class Ingreso(models.Model):
 
 class Salida(models.Model):
     creado= models.DateField(auto_now_add=True)
-    sku = models.ManyToManyField(Sku)
+    sku =  models.ForeignKey(Sku, on_delete=models.SET_NULL, null= True)
     cantidad = models.IntegerField()
     LOAN_DESTINO = (
         ('wareclouds', 'Wareclouds'),

@@ -2,19 +2,23 @@
 
 {% block content %}
     <h2 style ="color:rgb(105, 105, 226)">  Otros envíos</h2>
-
+    <br>
     {% if salida_list %}
     <ul>
-
+      <h5>
       {% for salida in salida_list %}
       <li style="color:darkblue">
        
        
-        {{ salida.creado}} &nbsp &nbsp &nbsp &nbsp {% for sku in salida.sku.all %} {{ sku }}{% if not forloop.last %}, {% endif %}{% endfor %}</a>  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp Cantidad : {{salida.cantidad}} 
+        {{ salida.creado}} &nbsp &nbsp &nbsp &nbsp 
+        
+        <a href="{% url 'detalle-sku' salida.sku.pk %}">{{ salida.sku }}</a> &nbsp &nbsp &nbsp &nbsp  
+        
+        Cantidad : {{salida.cantidad}} 
         
       </li>
       {% endfor %}
-
+      <h5>
     </ul>
     {% else %}
       <p>No hay productos enviados</p>

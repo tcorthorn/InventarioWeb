@@ -27,14 +27,14 @@ class SkuAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 @admin.register(Ingreso)
 class IngresoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ('creado','display_sku','cantidad', 'comentario')
+    list_display = ('creado','sku','cantidad', 'comentario')
     list_filter = ('sku', 'creado')
     resources_class = Ingreso
     search_fields = ("sku", )
 
 @admin.register(Salida)
 class SalidaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ('creado', 'display_sku', 'cantidad', 'destino', 'comentario')
+    list_display = ('creado', 'sku', 'cantidad', 'destino', 'comentario')
     list_filter = ( 'creado', 'destino','sku')
     resources_class = Salida
     search_fields = ("destino",  )
