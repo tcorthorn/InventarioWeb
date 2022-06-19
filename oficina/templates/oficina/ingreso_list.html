@@ -7,7 +7,7 @@
     <ul>
 
       {% for ingreso in ingreso_list %}
-      <li style="color:darkblue">
+      <table style="color:darkblue">
       <h5>
         {{ ingreso.creado}} &nbsp &nbsp &nbsp &nbsp 
 
@@ -15,7 +15,7 @@
        
         Cantidad : {{ingreso.cantidad}}
       </h5>
-      </li>
+    </table>
       {% endfor %}
 
     </ul>

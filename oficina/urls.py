@@ -20,4 +20,10 @@ urlpatterns = [
    path('directo/', views.DirectoListView.as_view(), name='directo'),
    path('otro/', views.OtroListView.as_view(), name='otro'),
 
+   #path('busca/', views.busca, name='busca'),
+
+   
+   path('busqueda_productos/', views.busqueda_productos, name='busqueda'),
+  
+
    ]

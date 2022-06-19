@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+<h2 style ="color:rgb(105, 105, 226)"> Administración de Inventarios <em>Borangora</em> </h2>
+
+  <p "style ="color:blue">Sitio Administración de <em>Borangora</em>, para manejo de inventarios</p>
+
+<h3 style ="color:rgb(14, 14, 201)">Datos Actualizados :</h3>
+<br>
+  <p> <strong> <h5>El SKU :  {{query}} <h5></strong> <br>tiene hoy lo siguiente stock en la Oficina:</p>
+    <br>
+    <li style = "color: red"><strong>mensaje   : =  {{ mensaje }} </strong> <a href="{% url 'busqueda' %}">  &nbsp  VOLVER </a></li> <br> 
+  <ul>
+    <li style ="color:rgb(12, 50, 120)"><strong>Movimientos:</strong> {{ ingresos }}</li>
+
+    <br>
+   
+    <li><strong>Total SKU ingresados  : {{ ingresos_totales }} </strong> </li> 
+    
+    <li><strong>Total productos despachados  : {{ salidas_totales }} </strong> </li>
+
+    <li><strong>Stock de productos en Oficina   : =  {{ stock }} </strong> </li>
+
+    
+
+
+  </ul>
+
+
+{% endblock %}

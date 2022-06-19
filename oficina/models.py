@@ -48,7 +48,7 @@ class Sku(models.Model):
 
 class Ingreso(models.Model):
     creado= models.DateField(auto_now_add=True)
-    sku =  models.ForeignKey(Sku, on_delete=models.SET_NULL, null= True)
+    sku =  models.ForeignKey(Sku,  on_delete=models.SET_NULL, null= True)
     cantidad = models.IntegerField()
     proveedor =  models.ForeignKey(Proveedor,  on_delete=models.SET_NULL, null= True)
     comentario = models.CharField(max_length=200, null=True,blank=True , default='Comentario')

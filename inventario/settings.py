@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'inventario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'InventarioWeb',
+        'NAME': 'InventarioWeb1',
         'USER': 'postgres',
         'PASSWORD': '123321',
         'HOST': '127.0.0.1',

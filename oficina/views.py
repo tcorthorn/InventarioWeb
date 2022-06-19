@@ -3,6 +3,8 @@ from django.db.models import Avg, Sum
 from .models import Proveedor, Ingreso, Salida, Sku
 from django.views import generic
 from django.db.models import Count, F
+from django.http import HttpResponse
+
 def index(request):
     """
     Función vista para la página inicio del sitio.
@@ -19,11 +21,7 @@ def index(request):
     salidas_totales=sum(salidas.values_list('cantidad',flat=True))
 
     stock= ingresos_totales - salidas_totales
-    
-    # total_ingresos=Ingreso.objects.all().aggregate(Total_ingresados = Sum('cantidad'))
-    # total_salidas = Salida.objects.all().aggregate(Total_productos_enviados = Sum('cantidad'))
 
-   
     # Renderiza la plantilla
     return render(
         request,
@@ -87,3 +85,47 @@ class SalidaDetailView(generic.DetailView):
 class SkuDetailView(generic.DetailView):
     model = Sku
     paginate_by = 10
+
+
+
+
+
+
+#Formulario para buscar sku
+
+
+
+def busqueda_productos(request):
+    return render (request, "formulario.html")
+ 
+def buscar(request):
+    if request.GET["cod"]:
+
+        producto=request.GET["cod"]
+
+        if len(producto) == 7 :
+
+            num_ingresos=Ingreso.objects.all().filter(sku__codigo=producto)
+            num_salidas = Salida.objects.all().filter(sku__codigo=producto)
+
+            ingresos_totales=sum(num_ingresos.values_list('cantidad',flat=True))
+            salidas_totales=sum(num_salidas.values_list('cantidad',flat=True))
+
+            stock= ingresos_totales - salidas_totales
+
+            # Renderiza la plantilla
+            return render(request, 'busca.html', context={'salidas_totales':salidas_totales, 'ingresos_totales':ingresos_totales, 'stock':stock, "query":producto})   
+
+        else:
+            mensaje= " Código SKU debe tener 7 dígitos"
+
+            return render(request, 'busca.html', context={'mensaje':mensaje, "query":producto}) 
+          
+    else:
+            
+            mensaje= "No has ingresado datos"
+            return render(request, 'busca.html', context={'mensaje':mensaje}) 
+
+        
+    return HttpResponse(mensaje)
+

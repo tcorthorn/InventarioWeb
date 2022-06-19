@@ -5,12 +5,15 @@ from django.urls import include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from oficina import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('oficina.urls')),
     path('', RedirectView.as_view(url='/home/', permanent=True)),
+    path('buscar/', views.buscar, name= 'buscar'),
+    
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
