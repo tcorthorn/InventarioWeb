@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2 style ="color:rgb(105, 105, 226)">Elimina Ingreso de Producto</h2>
+>br>
+<p style ="color:rgb(105, 105, 226)">¿Estas segura de eliminar el ingreso?: {{ author }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="SI, ELIMINAR." />
+</form>
+
+{% endblock %}

@@ -4,6 +4,9 @@ from .models import Proveedor, Ingreso, Salida, Sku
 from django.views import generic
 from django.db.models import Count, F
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 
 def index(request):
     """
@@ -87,13 +90,7 @@ class SkuDetailView(generic.DetailView):
     paginate_by = 10
 
 
-
-
-
-
 #Formulario para buscar sku
-
-
 
 def busqueda_productos(request):
     return render (request, "formulario.html")
@@ -113,8 +110,10 @@ def buscar(request):
 
             stock= ingresos_totales - salidas_totales
 
+            prod_list =Sku.objects.filter(codigo=producto)
+
             # Renderiza la plantilla
-            return render(request, 'busca.html', context={'salidas_totales':salidas_totales, 'ingresos_totales':ingresos_totales, 'stock':stock, "query":producto})   
+            return render(request, 'busca.html', context={'salidas_totales':salidas_totales, 'ingresos_totales':ingresos_totales, 'stock':stock, "query":producto, 'prod_list':prod_list})   
 
         else:
             mensaje= " Código SKU debe tener 7 dígitos"
@@ -129,3 +128,42 @@ def buscar(request):
         
     return HttpResponse(mensaje)
 
+# Formularios para ingresar; modificar y eliminar
+
+class SkuCreate(CreateView):
+    model = Sku
+    fields = '__all__'
+    
+class SkuUpdate(UpdateView):
+    model = Sku
+    fields = fields = '__all__'
+
+class SkuDelete(DeleteView):
+    model = Sku
+    success_url =fields = '__all__'
+
+
+class IngresoCreate(CreateView):
+    model = Ingreso
+    fields = '__all__'
+    
+class IngresoUpdate(UpdateView):
+    model = Ingreso
+    fields = fields = '__all__'
+
+class IngresoDelete(DeleteView):
+    model = Ingreso
+    success_url =fields = '__all__'
+
+
+class SalidaCreate(CreateView):
+    model = Salida
+    fields = '__all__'
+    
+class SalidaUpdate(UpdateView):
+    model = Salida
+    fields = fields = '__all__'
+
+class SalidaDelete(DeleteView):
+    model = Salida
+    success_url =fields = '__all__'

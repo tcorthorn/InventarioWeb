@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2 style ="color:rgb(105, 105, 226)">Elimina Producto</h2>
+
+<p>Estas segura que eliminas el SKU: {{ codigo }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="SI, ELIMINAR." />
+</form>
+
+{% endblock %}

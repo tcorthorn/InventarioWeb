@@ -24,6 +24,17 @@ urlpatterns = [
 
    
    path('busqueda_productos/', views.busqueda_productos, name='busqueda'),
-  
+
+   path('cod/create/', views.SkuCreate.as_view(), name='sku_create'),
+   path('cod/<pk>/update/', views.SkuUpdate.as_view(), name='sku_update'),
+   path('cod/<pk>/delete/', views.SkuDelete.as_view(), name='sku_delete'),
+
+   path('ing/create/', views.IngresoCreate.as_view(), name='ingreso_create'),
+   path('ing/<pk>/update/', views.IngresoUpdate.as_view(), name='ingreso_update'),
+   path('ing/<pk>/delete/', views.IngresoDelete.as_view(), name='ingresodelete'),
+
+   path('sal/create/', views.SalidaCreate.as_view(), name='salida_create'),
+   path('sal/<pk>/update/', views.SalidaUpdate.as_view(), name='salida_update'),
+   path('sal/<pk>/delete/', views.SalidaDelete.as_view(), name='salida_delete'),
 
    ]

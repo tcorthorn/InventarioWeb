@@ -82,7 +82,7 @@ class Salida(models.Model):
         ('enviodirecto','EnvioDirecto'),
         ('otro','Otro'),
     )
-    destino = models.CharField(max_length=20 , choices=LOAN_DESTINO , blank=True)
+    destino = models.CharField(max_length=20 , choices=LOAN_DESTINO )
     comentario = models.CharField(max_length=300 , null=True , blank=True)
   
     def __str__(self):

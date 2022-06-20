@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2 style ="color:rgb(105, 105, 226)">Elimina Despacho de Productos </h2>
+<br>
+<h5 style ="color:rgb(105, 105, 226)">¿Estas segura que quieres eliminar este depacho?: {{ author }}?</h5>
+<br>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="SI, ELIMINAR." />
+</form>
+
+{% endblock %}

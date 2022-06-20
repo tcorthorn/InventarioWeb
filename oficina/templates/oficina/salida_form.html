@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2 style ="color:rgb(105, 105, 226)">Despachos de Productos</h2>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Ingresar" />
+
+</form>
+{% endblock %}

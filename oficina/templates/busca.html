@@ -3,30 +3,21 @@
 {% load static %}
 
 {% block content %}
-<h2 style ="color:rgb(105, 105, 226)"> Administración de Inventarios <em>Borangora</em> </h2>
+<h4 style ="color:rgb(105, 105, 226)"> Administración de Inventarios <em>Borangora</em> </h4>
 
-  <p "style ="color:blue">Sitio Administración de <em>Borangora</em>, para manejo de inventarios</p>
-
-<h3 style ="color:rgb(14, 14, 201)">Datos Actualizados :</h3>
-<br>
-  <p> <strong> <h5>El SKU :  {{query}} <h5></strong> <br>tiene hoy lo siguiente stock en la Oficina:</p>
-    <br>
-    <li style = "color: red"><strong>mensaje   : =  {{ mensaje }} </strong> <a href="{% url 'busqueda' %}">  &nbsp  VOLVER </a></li> <br> 
+{%for prod in prod_list %}
+ <p> <strong> <h5 style ="color:rgb(50, 20, 90"> <p style ="color:blue" > {{query}}&nbsp; &nbsp; &nbsp; &nbsp; {{prod.categoria}} &nbsp &nbsp &nbsp &nbsp {{prod.producto}} <h5> </p> 
+{% endfor %}
+  
   <ul>
-    <li style ="color:rgb(12, 50, 120)"><strong>Movimientos:</strong> {{ ingresos }}</li>
-
     <br>
-   
     <li><strong>Total SKU ingresados  : {{ ingresos_totales }} </strong> </li> 
     
     <li><strong>Total productos despachados  : {{ salidas_totales }} </strong> </li>
-
-    <li><strong>Stock de productos en Oficina   : =  {{ stock }} </strong> </li>
-
-    
-
-
+    <br>
+  <h5> <strong style ="color:blue" >{{ query }} </strong> en Oficina   : =  {{ stock }} <h5>
+     <br>
+    <li style = "color: red"><strong> {{ mensaje }} </strong> <a style = "color: red" href="{% url 'busqueda' %}">   Nueva Búsqueda </a></li> <br> 
   </ul>
-
 
 {% endblock %}
