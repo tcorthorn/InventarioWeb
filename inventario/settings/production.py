@@ -5,7 +5,7 @@ DEBUG = True
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 
-ALLOWED_HOSTS = ['rentaweb.herokuapp.com']
+ALLOWED_HOSTS = ['inventario.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
