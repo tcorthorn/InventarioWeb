@@ -1,1 +1,1 @@
-web: gunicorn Renta.wsgi --log-file -
+web: gunicorn inventario.wsgi --log-file -
