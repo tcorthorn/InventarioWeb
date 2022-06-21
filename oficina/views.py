@@ -126,7 +126,6 @@ def buscar(request):
             return render(request, 'busca.html', context={'mensaje':mensaje}) 
 
         
-    return HttpResponse(mensaje)
 
 # Formularios para ingresar; modificar y eliminar
 
@@ -167,3 +166,14 @@ class SalidaUpdate(UpdateView):
 class SalidaDelete(DeleteView):
     model = Salida
     success_url =fields = '__all__'
+
+#Busca el stock de todos los productos en Oficina
+
+ 
+
+        
+          
+   
+
+        
+   

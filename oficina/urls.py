@@ -13,16 +13,12 @@ urlpatterns = [
    path('salida/<pk>', views.SalidaDetailView.as_view(), name='detalle-salida'),
    path('sku/<pk>', views.SkuDetailView.as_view(), name='detalle-sku'),
 
-
    path('wareclouds/', views.WarecloudsListView.as_view(), name='wareclouds'),
    path('casamoda/', views.CasamodaListView.as_view(), name='casamoda'),
    path('aura/', views.AuraListView.as_view(), name='aura'),
    path('directo/', views.DirectoListView.as_view(), name='directo'),
    path('otro/', views.OtroListView.as_view(), name='otro'),
 
-   #path('busca/', views.busca, name='busca'),
-
-   
    path('busqueda_productos/', views.busqueda_productos, name='busqueda'),
 
    path('cod/create/', views.SkuCreate.as_view(), name='sku_create'),

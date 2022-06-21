@@ -3,27 +3,23 @@
 {% load static %}
 
 {% block content %}
-<h2 style ="color:rgb(105, 105, 226)"> Administración de Inventarios <em>Borangora</em> </h2>
+<h3 style ="color:rgb(105, 105, 226)"> Inventarios <em>Borangora</em> </h3>
 
-  <p "style ="color:blue">Sitio Administración de <em>Borangora</em>, para manejo de inventarios</p>
 
-<h3 style ="color:rgb(14, 14, 201)">Datos Actualizados :</h3>
+<h5 style ="color:rgb(14, 14, 201)">Datos Actualizados :</h5>
 
-  <p>La Tienda tiene hoy lo siguiente:</p>
   <ul>
-    <li style ="color:rgb(12, 12, 148)"><strong>Movimientos:</strong> {{ ingresos }}</li>
     <br>
     <li><strong>Ingresos:</strong> {{ num_ingresos }}</li>
     <li><strong>Despachos:</strong> {{ num_salidas }}</li>
     <br>
-    <li><strong>Stock de productos en oficina:</strong> {{ saldo }}</li>
-    <br>
+    <p><strong>Stock de productos en oficina:</strong> {{ saldo }}</p>
    
-    <li><strong>Total productos ingresados  : {{ ingresos_totales }} </strong> </li>
+    <li><strong>Productos ingresados  : {{ ingresos_totales }} </strong> </li>
     
-    <li><strong>Total productos despachados  : {{ salidas_totales }} </strong> </li>
+    <li><strong>Productos despachados  : {{ salidas_totales }} </strong> </li>
 
-    <li><strong>Stock de productos en Oficina   : =  {{ stock }} </strong> </li>
+    <li><strong style ="color:rgb(105, 105, 226)">Stock en Oficina   : =  {{ stock }} </strong> </li>
 
   </ul>
 

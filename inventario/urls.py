@@ -13,7 +13,7 @@ urlpatterns = [
     path('home/', include('oficina.urls')),
     path('', RedirectView.as_view(url='/home/', permanent=True)),
     path('buscar/', views.buscar, name= 'buscar'),
-    
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
