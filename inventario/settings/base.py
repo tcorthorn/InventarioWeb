@@ -21,7 +21,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['inventarioboran.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
