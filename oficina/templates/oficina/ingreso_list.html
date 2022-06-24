@@ -2,24 +2,28 @@
 
 {% block content %}
     <h2 style="color:blueviolet"> Ingresos</h2>
-    <br>
-    {% if ingreso_list %}
-    <ul>
 
-      {% for ingreso in ingreso_list %}
-      <table style="color:darkblue">
-      <h5>
-        {{ ingreso.creado}} &nbsp &nbsp &nbsp &nbsp 
-
-        <a href="{% url 'detalle-sku' ingreso.sku.pk %}">{{ ingreso.sku }}</a> &nbsp &nbsp
-       
-        Cantidad : {{ingreso.cantidad}}
-      </h5>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="">Fecha</th>
+          <th scope="">SKU</th>
+          <th scope="">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if ingreso_list %}
+          {% for ingreso in ingreso_list %}
+        <tr>
+           <td>{{ ingreso.creado|date:"d-m-y"}}</td>
+           <td><a href="{% url 'detalle-sku' ingreso.sku.pk %}">{{ ingreso.sku }}</a></td>
+          <td>{{ingreso.cantidad}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+          <p>No hay ingresos de productos.</p>
+        {% endif %} 
+      </tbody>
     </table>
-      {% endfor %}
 
-    </ul>
-    {% else %}
-      <p>There are no Ingresos in the library.</p>
-    {% endif %} 
 {% endblock %}

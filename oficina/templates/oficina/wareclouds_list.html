@@ -1,25 +1,29 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h2 style ="color:rgb(105, 105, 226)">Wareclouds</h2>
-    <br>
-    {% if salida_list %}
-    <ul>
-      <h5>
-      {% for salida in salida_list %}
-      <li style="color:darkblue">
-       
-        {{ salida.creado}} &nbsp &nbsp &nbsp &nbsp 
-        
-        <a href="{% url 'detalle-sku' salida.sku.pk %}">{{ salida.sku }}</a> &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp 
-        
-        Cantidad : {{salida.cantidad}} 
-        
-      </li>
-      {% endfor %}
-      <h5>
-    </ul>
-    {% else %}
-      <p>No hay productos enviados</p>
-    {% endif %} 
+    <h2 style ="color:blueviolet">Wareclouds</h2>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="">Fecha</th>
+          <th scope="">SKU</th>
+          <th scope="">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if salida_list %}
+          {% for salida in salida_list %}
+        <tr>
+           <td>{{ salida.creado|date:"d-m-y"}}</td>
+           <td><a href="{% url 'detalle-sku' salida.sku.pk %}">{{ salida.sku }}</a></td>
+          <td>{{salida.cantidad}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+          <p>No hay salidas de productos.</p>
+        {% endif %} 
+      </tbody>
+    </table>
+
 {% endblock %}

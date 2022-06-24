@@ -3,25 +3,31 @@
 {% load static %}
 
 {% block content %}
-<h3 style ="color:rgb(105, 105, 226)"> Inventarios <em>Borangora</em> </h3>
-
-
-<h5 style ="color:rgb(14, 14, 201)">Datos Actualizados :</h5>
-
-  <ul>
-    <br>
-    <li><strong>Ingresos:</strong> {{ num_ingresos }}</li>
-    <li><strong>Despachos:</strong> {{ num_salidas }}</li>
-    <br>
-    <p><strong>Stock de productos en oficina:</strong> {{ saldo }}</p>
-   
-    <li><strong>Productos ingresados  : {{ ingresos_totales }} </strong> </li>
-    
-    <li><strong>Productos despachados  : {{ salidas_totales }} </strong> </li>
-
-    <li><strong style ="color:rgb(105, 105, 226)">Stock en Oficina   : =  {{ stock }} </strong> </li>
-
-  </ul>
+<h2 style ="color:blueviolet"> Inventario actualizado <em>en Oficina</em> </h2>
+<br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="">Ingresos</th>
+        <th scope="">Despachos</th>
+        <th scope="">Prod Ingresados</th>
+        <th scope="">Prod despachados</th>
+        <th scope="">Stock en Oficina</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr>
+         <td> {{num_ingresos}} </td>
+         <td style ="color:blue">{{ num_salidas }} </td>
+         <td> {{ ingresos_totales }}</td>
+         <td style ="color:blue"> {{ salidas_totales }}</td>
+         <td > {{ stock }}</td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
 
 
       {% block pagination %}

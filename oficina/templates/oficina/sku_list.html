@@ -2,27 +2,33 @@
 
 
 {% block content %}
-    <h1 style ="color:rgb(105, 105, 226)">Catalogo</h1>
-    <br>
-    {% if sku_list %}
-    <ul>
+    <h2 style ="color:rgb(105, 105, 226)">Catalogo</h2>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="">Fecha</th>
+          <th scope="">SKU</th>
+          <th scope="">Categoría</th>
+          <th scope="">Producto</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if sku_list %}
+          {% for sku in sku_list %}
+        <tr>
+           <td>{{ sku.creado|date:"d-m-y"}}</td>
+           <td style ="color:blue">{{ sku.codigo}}</td>
+           <td> {{ sku.categoria}}</td>
+           <td style ="color:blue"> {{ sku.producto}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+          <p>No hay productos</p>
+        {% endif %} 
+      </tbody>
+    </table>
 
-      {% for sku in sku_list %}
-      <li style="color:darkblue">
-        <h5>
-        {{ sku.creado}} &nbsp &nbsp &nbsp &nbsp 
-        {{ sku.codigo}} &nbsp &nbsp &nbsp &nbsp 
-        {{ sku.categoria}} &nbsp &nbsp &nbsp &nbsp 
-        {{ sku.producto}} &nbsp &nbsp &nbsp &nbsp 
-
-        </h5>
-      </li>
-  
-      {% endfor %}
-
-    </ul>
-    {% else %}
-      <p>No hay salidas de productos.</p>
-    {% endif %} 
+    
  
 {% endblock %}
