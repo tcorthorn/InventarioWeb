@@ -5,8 +5,6 @@ import datetime #for checking renewal date range.
 from django.forms import ModelForm
 from .models import Sku, Ingreso, Salida
 
-
-
 class SaldoForm(forms.Form): 
     cod = forms.CharField(help_text= "Entre el SKU buscado")
 
@@ -21,10 +19,6 @@ class SaldoForm(forms.Form):
                 raise ValidationError('Sku debe ser de 7 digitos')
 
         return data
-
-
-
-
 
 class SkuModelForm(ModelForm):
 

@@ -20,6 +20,7 @@ urlpatterns = [
    path('otro/', views.OtroListView.as_view(), name='otro'),
 
    path('busqueda_productos/', views.busqueda_productos, name='busqueda'),
+   path('todos/', views.todos, name='todos'),
 
    path('cod/create/', views.SkuCreate.as_view(), name='sku_create'),
    path('cod/<pk>/update/', views.SkuUpdate.as_view(), name='sku_update'),

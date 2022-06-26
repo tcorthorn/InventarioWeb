@@ -40,7 +40,7 @@ class Sku(models.Model):
         verbose_name_plural = "sku"
     
     class Meta:
-        ordering =['categoria', 'producto']
+        ordering =['codigo','categoria', 'producto']
 
     def get_absolute_url(self):
         """         Devuelve el URL a una instancia particular de Catalogo         """
@@ -62,7 +62,7 @@ class Ingreso(models.Model):
         """
         return reverse('detalle-ingreso', args=[str(self.id)])
     class Meta:
-        ordering =['-creado']
+        ordering =['sku']
 
     def display_sku(self):
         """"         Creates a string for the cliente. This is required to display sku in Admin.        """
@@ -105,4 +105,25 @@ class Salida(models.Model):
         ordering =['-creado']
 
 
+
+class Inv_Of(models.Model):
+    creado= models.DateField(auto_now_add=True)
+    sku =  models.CharField(max_length=7)
+    categoria =models.CharField(max_length=30)
+    producto = models.CharField(max_length=50)
+    ingresos = models.IntegerField()
+    salidas = models.IntegerField()
+    stock = models.IntegerField()
     
+    def __str__(self):
+        return self.categoria
+
+    def get_absolute_url(self):
+        """
+        Retorna la url para acceder a una instancia particular de un proveedor.
+        """
+        return reverse('detalle-inventario', args=[str(self.id)])
+    class Meta:
+        ordering =['sku']
+
+   

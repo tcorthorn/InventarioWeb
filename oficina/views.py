@@ -125,7 +125,42 @@ def buscar(request):
             mensaje= "No has ingresado datos"
             return render(request, 'busca.html', context={'mensaje':mensaje}) 
 
-        
+
+ # Búsqueda de stock por productos
+
+def todos(request):
+
+    cod_list =Ingreso.objects.order_by('sku__codigo').distinct('sku__codigo')
+    ing=Ingreso.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad'))
+    
+    cod_salid =Salida.objects.order_by('sku__codigo').distinct('sku__codigo')
+    sal=Salida.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad'))
+
+    union= ing.union(sal,all=True)
+
+    list=[]
+    for producto in cod_list:
+    
+        num_ingresos=Ingreso.objects.all().filter(sku__codigo=producto.sku)
+        num_salidas = Salida.objects.all().filter(sku__codigo=producto.sku)
+
+        ingresos_totales=sum(num_ingresos.values_list('cantidad',flat=True))
+        salidas_totales=sum(num_salidas.values_list('cantidad',flat=True))
+
+        stock= ingresos_totales - salidas_totales
+
+        list =list.append(stock)
+
+        prod_list =Sku.objects.filter(codigo=producto.sku)
+
+        # Renderiza la plantilla
+        return render(request, 'todos.html', 
+                context={'salidas_totales':salidas_totales, 'ingresos_totales':ingresos_totales, 
+                'stock':stock, "query":producto, 'prod_list':prod_list,
+                'cod_list':cod_list,'list':list, 'ing':ing,'cod_salid':cod_salid,'sal':sal,'union':union})   
+
+   
+
 
 # Formularios para ingresar; modificar y eliminar
 

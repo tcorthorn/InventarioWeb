@@ -3,21 +3,33 @@
 {% load static %}
 
 {% block content %}
-<h4 style ="color:rgb(105, 105, 226)"> Inventarios <em>en Oficina</em> </h4>
+    <h2 style ="color:blueviolet">Inventario en Oficina</h2>
 
-{%for prod in prod_list %}
- <p> <strong> <h5 style ="color:rgb(50, 20, 90"> <p style ="color:blue" > {{query}}&nbsp; &nbsp; &nbsp; &nbsp; {{prod.categoria}} &nbsp &nbsp &nbsp &nbsp {{prod.producto}} <h5> </p> 
-{% endfor %}
-  
-  <ul>
-    <br>
-    <li><strong>Total SKU ingresados  : {{ ingresos_totales }} </strong> </li> 
-    
-    <li><strong>Total productos despachados  : {{ salidas_totales }} </strong> </li>
-    <br>
-  <h5> <strong style ="color:blue" >{{ query }} </strong> en Oficina   : =  {{ stock }} <h5>
-     <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="">SKU</th>
+          <th scope="">Categoría</th>
+          <th scope="">Producto</th>
+          <th scope="">Ingresos</th>
+          <th scope="">Salidas</th>
+          <th scope="">Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%for prod in prod_list %}
+        <tr>
+           <td>{{ query }}</td>
+           <td style ="color:blue" >{{prod.categoria}}</a></td>
+           <td style ="color:blue" > {{prod.producto}}</td>
+           <td>{{ ingresos_totales }}</td>
+           <td>{{ salidas_totales }}</a></td>
+          <td style ="color:blue"> {{ stock }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
     <li style = "color: red"><strong> {{ mensaje }} </strong> <a style = "color: red" href="{% url 'busqueda' %}">   Nueva Búsqueda </a></li> <br> 
-  </ul>
 
 {% endblock %}
