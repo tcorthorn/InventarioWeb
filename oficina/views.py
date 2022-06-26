@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Avg, Sum
-from .models import Proveedor, Ingreso, Salida, Sku
+from .models import Proveedor, Ingreso, Salida, Sku, Inventario_Oficina
 from django.views import generic
 from django.db.models import Count, F
 from django.http import HttpResponse
@@ -42,6 +42,10 @@ class IngresoListView(generic.ListView):
 
 class SalidaListView(generic.ListView):
     model = Salida
+    paginate_by = 10
+
+class Inventario_OficinaListView(generic.ListView):
+    model = Inventario_Oficina
     paginate_by = 10
 
 class WarecloudsListView(generic.ListView):

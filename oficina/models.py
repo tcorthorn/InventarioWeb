@@ -106,8 +106,8 @@ class Salida(models.Model):
 
 
 
-class Inv_Of(models.Model):
-    creado= models.DateField(auto_now_add=True)
+class Inventario_Oficina(models.Model):
+    actualizado= models.DateField(auto_now_add=True)
     sku =  models.CharField(max_length=7)
     categoria =models.CharField(max_length=30)
     producto = models.CharField(max_length=50)
@@ -125,5 +125,9 @@ class Inv_Of(models.Model):
         return reverse('detalle-inventario', args=[str(self.id)])
     class Meta:
         ordering =['sku']
+
+    class Meta:
+        verbose_name = "Inventario Oficina"
+        verbose_name_plural = "Inventario Oficina"
 
    
