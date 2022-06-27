@@ -122,7 +122,7 @@ class Stock(models.Model):
         """
         Retorna la url para acceder a una instancia particular de un proveedor.
         """
-        return reverse('detalle_inventario', args=[str(self.id)])
+        return reverse('detalle_stock', args=[str(self.id)])
     class Meta:
         ordering =['sku']
 
