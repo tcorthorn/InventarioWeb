@@ -34,7 +34,7 @@ def index(request):
 
 class SkuListView(generic.ListView):
     model = Sku
-    paginate_by = 10
+    paginate_by = 15
 
 class IngresoListView(generic.ListView):
     model = Ingreso

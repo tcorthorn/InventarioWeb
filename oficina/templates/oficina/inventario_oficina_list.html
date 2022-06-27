@@ -19,7 +19,7 @@
       <tbody>
         {% if inventario_oficina_list %}
           {% for k in inventario_oficina_list %}
-        <tr>
+         <tr>
            <td>{{ k.actualizado|date:"d-m-y"}}</td>
            <td> {{ k.sku}} </td>
            <td>{{k.categoria}}</td>
@@ -27,8 +27,8 @@
            <td>{{k.ingresos}}</td>
            <td>{{k.salidas}}</td>
            <td>{{k.stock}}</td>
-        </tr>
-        {% endfor %}
+         </tr>
+          {% endfor %}
         {% else %}
           <p>No hay inventario en Oficina</p>
         {% endif %} 
