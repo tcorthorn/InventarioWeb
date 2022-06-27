@@ -17,8 +17,8 @@
         </tr>
       </thead>
       <tbody>
-        {% if stock_list %}
-          {% for k in stock_list %}
+        {% if inventario_oficina_list %}
+          {% for k in inventario_oficina_list %}
         <tr>
            <td>{{ k.actualizado|date:"d-m-y"}}</td>
            <td> {{ k.sku}} </td>
