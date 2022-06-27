@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Proveedor, Sku, Ingreso, Salida, Inventario_Oficina
+from .models import Proveedor, Sku, Ingreso, Salida, Stock
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from datetime import date
@@ -7,10 +7,10 @@ from datetime import date
 class InventResource(resources.ModelResource):
     class Meta:
         model = Proveedor
-        model =Sku
+        model = Sku
         model = Ingreso
         model = Salida
-        model = Inventario_Oficina
+        model = Stock
      
 @admin.register(Proveedor)
 class ProveedorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
@@ -41,9 +41,9 @@ class SalidaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields = ("destino",  )
 
 
-@admin.register(Inventario_Oficina)
-class Inventario_OficinaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+@admin.register(Stock)
+class StockAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('actualizado', 'sku', 'categoria', 'producto', 'ingresos', 'salidas', 'stock')
     list_filter = ('sku','categoria', 'stock')
-    resources_class = Inventario_Oficina
+    resources_class = Stock
     search_fields = ("sku", 'categoria','producto')

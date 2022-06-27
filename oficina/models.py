@@ -106,7 +106,7 @@ class Salida(models.Model):
 
 
 
-class Inventario_Oficina(models.Model):
+class Stock(models.Model):
     actualizado= models.DateField(auto_now_add=True)
     sku =  models.CharField(max_length=7)
     categoria =models.CharField(max_length=30)
@@ -122,12 +122,12 @@ class Inventario_Oficina(models.Model):
         """
         Retorna la url para acceder a una instancia particular de un proveedor.
         """
-        return reverse('detalle-inventario', args=[str(self.id)])
+        return reverse('detalle_inventario', args=[str(self.id)])
     class Meta:
         ordering =['sku']
 
     class Meta:
-        verbose_name = "Inventario Oficina"
-        verbose_name_plural = "Inventario Oficina"
+        verbose_name = "Stock"
+        verbose_name_plural = "Stock"
 
    

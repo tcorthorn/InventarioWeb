@@ -27,23 +27,14 @@
     <tr>
        <td>{{cod.sku__codigo}}</td>
        <td style ="color:blue" >{{cod.sku__Ingreso.categoria}}</a></td>
-       <td style ="color:blue" > {{prod.producto}}</td>
+       <td style ="color:blue" >  </td>
        <td> {{ cod.suma }}</td>
        <td>{{ salidas_totales }}</a></td>
       <td style ="color:blue"></td>
     </tr>
-  {% endfor %}
+    {% endfor %}
 
-  {% for cod in sal%}
-  <tr>
-     <td>{{cod.sku__codigo}}</td>
-     <td style ="color:blue" >{{prod.categoria}}</a></td>
-     <td style ="color:blue" > {{prod.producto}}</td>
-     <td></td>
-     <td>{{ cod.suma }}</a></td>
-    <td style ="color:blue"> </td>
-  </tr>
-{% endfor %}
+ 
 
 
   </tbody>
@@ -61,27 +52,18 @@
     </tr>
   </thead>
   <tbody>
-    {% for cod in union %}
+    {% for cod in sal%}
     <tr>
        <td>{{cod.sku__codigo}}</td>
-       <td style ="color:blue" >{{cod.categoria}}</a></td>
+       <td style ="color:blue" >{{prod.categoria}}</a></td>
        <td style ="color:blue" > {{prod.producto}}</td>
-       <td> {{ cod.suma }}</td>
-       <td>{{ salidas_totales }}</a></td>
-      <td style ="color:blue"></td>
+       <td></td>
+       <td>{{ cod.suma }}</a></td>
+      <td style ="color:blue"> </td>
     </tr>
-  {% endfor %}
+    {% endfor %}
 
-  {% for cod in sal%}
-  <tr>
-     <td>{{cod.sku__codigo}}</td>
-     <td style ="color:blue" >{{prod.categoria}}</a></td>
-     <td style ="color:blue" > {{prod.producto}}</td>
-     <td></td>
-     <td>{{ cod.suma }}</a></td>
-    <td style ="color:blue"> </td>
-  </tr>
-{% endfor %}
+  
 
 
   </tbody>
