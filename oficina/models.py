@@ -106,7 +106,7 @@ class Salida(models.Model):
 
 
 
-class Stock(models.Model):
+class Inventario_oficina(models.Model):
     actualizado= models.DateField(auto_now_add=True)
     sku =  models.CharField(max_length=7)
     categoria =models.CharField(max_length=30)
@@ -127,7 +127,7 @@ class Stock(models.Model):
         ordering =['sku']
 
     class Meta:
-        verbose_name = "Stock"
-        verbose_name_plural = "Stock"
+        verbose_name = "Inventario Oficina"
+        verbose_name_plural = "Inventario Oficina"
 
    
