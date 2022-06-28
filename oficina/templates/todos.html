@@ -3,39 +3,24 @@
 {% load static %}
 
 {% block content %}
-<h4 style ="color:rgb(105, 105, 226)"> Inventarios <em>en Oficina</em> </h4>
-
-{%for prod in prod_list %}
- <p> <strong> <h5 style ="color:rgb(50, 20, 90"> <p style ="color:blue" >  {{prod.categoria}} &nbsp  {{prod.producto}} <h5> </p> 
-{% endfor %}
-  
+<h4 style ="color:rgb(105, 105, 226)"> Inventarios instantáneo <em> en Oficina</em> </h4>
  
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="">SKU</th>
-      <th scope="">Categoría</th>
-      <th scope="">Producto</th>
       <th scope="">Ingresos</th>
-      <th scope="">Salidas</th>
-      <th scope="">Stock</th>
     </tr>
   </thead>
   <tbody>
     {% for cod in ing %}
     <tr>
        <td>{{cod.sku__codigo}}</td>
-       <td style ="color:blue" >{{cod.sku__Ingreso.categoria}}</a></td>
-       <td style ="color:blue" >  </td>
        <td> {{ cod.suma }}</td>
-       <td>{{ salidas_totales }}</a></td>
       <td style ="color:blue"></td>
     </tr>
     {% endfor %}
-
- 
-
 
   </tbody>
 </table>
@@ -44,19 +29,14 @@
   <thead>
     <tr>
       <th scope="">SKU</th>
-      <th scope="">Categoría</th>
-      <th scope="">Producto</th>
-      <th scope="">Ingresos</th>
+      <th scope=""></th>
       <th scope="">Salidas</th>
-      <th scope="">Stock</th>
     </tr>
   </thead>
   <tbody>
     {% for cod in sal%}
     <tr>
        <td>{{cod.sku__codigo}}</td>
-       <td style ="color:blue" >{{prod.categoria}}</a></td>
-       <td style ="color:blue" > {{prod.producto}}</td>
        <td></td>
        <td>{{ cod.suma }}</a></td>
       <td style ="color:blue"> </td>
