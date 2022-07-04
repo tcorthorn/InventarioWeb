@@ -155,8 +155,7 @@ def ingreso_por_producto(request):
         
         # Renderiza la plantilla
 
-    return render(request, 'ingreso_por_producto.html', 
-                context={"ing":ing})   
+    return render(request, 'ingreso_por_producto.html', context={"ing":ing})   
 
 
 
