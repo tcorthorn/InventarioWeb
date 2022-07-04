@@ -145,7 +145,7 @@ def todos(request):
     return render(request, 'todos.html', context={'cod_list':cod_list,'ing':ing,'cod_salid':cod_salid,'sal':sal})   
 
    
-def Ingreso_por_producto(request):
+def ingreso_por_producto(request):
 
     cod_list =Ingreso.objects.order_by('sku__codigo').distinct('sku__codigo')
     ing=Ingreso.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad'))

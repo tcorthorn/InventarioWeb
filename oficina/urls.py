@@ -23,7 +23,7 @@ urlpatterns = [
 
    path('busqueda_productos/', views.busqueda_productos, name='busqueda'),
    path('todos/', views.todos, name='todos'),
-   path('ing_prod/', views.Ingreso_por_producto, name ='ing_prod'),
+   path('ing_prod/', views.ingreso_por_producto, name ='ing_prod'),
 
    path('cod/create/', views.SkuCreate.as_view(), name='sku_create'),
    path('cod/<pk>/update/', views.SkuUpdate.as_view(), name='sku_update'),
