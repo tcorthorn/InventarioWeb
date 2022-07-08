@@ -62,7 +62,7 @@ class Ingreso(models.Model):
         """
         return reverse('detalle-ingreso', args=[str(self.id)])
     class Meta:
-        ordering =['sku']
+        ordering =['-creado']
 
     def display_sku(self):
         """"         Creates a string for the cliente. This is required to display sku in Admin.        """

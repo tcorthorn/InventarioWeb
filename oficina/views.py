@@ -164,40 +164,46 @@ def ingreso_por_producto(request):
 class SkuCreate(CreateView):
     model = Sku
     fields = '__all__'
-    
+    success_url = reverse_lazy('skus')
+
 class SkuUpdate(UpdateView):
     model = Sku
-    fields = fields = '__all__'
+    fields = '__all__'
+    success_url = reverse_lazy('skus')
 
 class SkuDelete(DeleteView):
     model = Sku
-    success_url =fields = '__all__'
+    success_url = reverse_lazy('skus')
 
 
 class IngresoCreate(CreateView):
     model = Ingreso
     fields = '__all__'
+    success_url = reverse_lazy('ingresos')
     
 class IngresoUpdate(UpdateView):
     model = Ingreso
-    fields = fields = '__all__'
+    fields = '__all__'
+    success_url = reverse_lazy('ingresos')
 
 class IngresoDelete(DeleteView):
     model = Ingreso
-    success_url =fields = '__all__'
+    success_url = reverse_lazy('ingresos')
 
 
 class SalidaCreate(CreateView):
     model = Salida
     fields = '__all__'
-    
+    success_url = reverse_lazy('salidas')
+
 class SalidaUpdate(UpdateView):
     model = Salida
     fields = fields = '__all__'
+    success_url = reverse_lazy('salidas')
 
 class SalidaDelete(DeleteView):
     model = Salida
-    success_url =fields = '__all__'
+    success_url = reverse_lazy('salidas')
 
 #Busca el stock de todos los productos en Oficina
 
