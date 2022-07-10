@@ -213,14 +213,13 @@ def total(request):
 
     cod_list =Ingreso.objects.order_by('sku__codigo').distinct('sku__codigo')
     ing=Ingreso.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad'))
-    
+
     
     cod_salid =Salida.objects.order_by('sku__codigo').distinct('sku__codigo')
     sal=Salida.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad' ))
 
-    total = ing.union(ing,sal)
+    total = ing.union(ing,sal).order_by('sku__codigo')
 
-    
 
 
         # Renderiza la plantilla
