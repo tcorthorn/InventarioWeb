@@ -23,7 +23,7 @@ def index(request):
     salidas=Salida.objects.all()
     salidas_totales=sum(salidas.values_list('cantidad',flat=True))
 
-    stock= ingresos_totales - salidas_totales
+    stock= ingresos_totales + salidas_totales
 
     # Renderiza la plantilla
     return render(
@@ -112,7 +112,7 @@ def buscar(request):
             ingresos_totales=sum(num_ingresos.values_list('cantidad',flat=True))
             salidas_totales=sum(num_salidas.values_list('cantidad',flat=True))
 
-            stock= ingresos_totales - salidas_totales
+            stock= ingresos_totales + salidas_totales
 
             prod_list =Sku.objects.filter(codigo=producto)
 
@@ -152,6 +152,8 @@ def ingreso_por_producto(request):
     
     cod_salid =Salida.objects.order_by('sku__codigo').distinct('sku__codigo')
     sal=Salida.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad'))
+
+
         
         # Renderiza la plantilla
 
@@ -205,9 +207,25 @@ class SalidaDelete(DeleteView):
     model = Salida
     success_url = reverse_lazy('salidas')
 
-#Busca el stock de todos los productos en Oficina
+#Busca el stock instantáneo de todos los productos en Oficina
 
- 
+def total(request):
+
+    cod_list =Ingreso.objects.order_by('sku__codigo').distinct('sku__codigo')
+    ing=Ingreso.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad'))
+    
+    
+    cod_salid =Salida.objects.order_by('sku__codigo').distinct('sku__codigo')
+    sal=Salida.objects.values('sku__codigo').order_by('sku__codigo').annotate(suma=Sum('cantidad' ))
+
+    total = ing.union(ing,sal)
+
+    
+
+
+        # Renderiza la plantilla
+
+    return render(request, 'total.html', context={'total':total}) 
 
         
           

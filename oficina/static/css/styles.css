@@ -9,3 +9,13 @@
     padding: 0;
     list-style: none;
 }
+
+form {
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 1000px; 
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }

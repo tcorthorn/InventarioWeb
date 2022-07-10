@@ -104,8 +104,6 @@ class Salida(models.Model):
     class Meta():
         ordering =['-creado']
 
-
-
 class Inventario_oficina(models.Model):
     actualizado= models.DateField(auto_now_add=True)
     sku =  models.CharField(max_length=7)
