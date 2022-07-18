@@ -15,7 +15,7 @@ urlpatterns = [
    path('salida/<pk>', views.SalidaDetailView.as_view(), name='detalle-salida'),
    path('sku/<pk>', views.SkuDetailView.as_view(), name='detalle-sku'),
 
-   path('wareclouds/', views.WarecloudsListView.as_view(), name='wareclouds'),
+   path('packco/', views.PackcoListView.as_view(), name='packco'),
    path('casamoda/', views.CasamodaListView.as_view(), name='casamoda'),
    path('aura/', views.AuraListView.as_view(), name='aura'),
    path('directo/', views.DirectoListView.as_view(), name='directo'),

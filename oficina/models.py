@@ -76,7 +76,7 @@ class Salida(models.Model):
     sku =  models.ForeignKey(Sku, on_delete=models.SET_NULL, null= True)
     cantidad = models.IntegerField()
     LOAN_DESTINO = (
-        ('wareclouds', 'Wareclouds'),
+        ('packco', 'Packco'),
         ('casamoda','CasaModa'),
         ('aura','Aura'),
         ('enviodirecto','EnvioDirecto'),

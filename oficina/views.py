@@ -48,11 +48,11 @@ class Inventario_oficinaListView(generic.ListView):
     model = Inventario_oficina
     paginate_by = 10
 
-class WarecloudsListView(generic.ListView):
+class PackcoListView(generic.ListView):
     model = Salida
     paginate_by = 10
-    queryset = Salida.objects.all().filter(destino__icontains="WareClouds") 
-    template_name = 'oficina/wareclouds_list.html'  # Specify your own template name/location
+    queryset = Salida.objects.all().filter(destino__icontains="Packco") 
+    template_name = 'oficina/packco_list.html'  # Specify your own template name/location
 
 class CasamodaListView(generic.ListView):
     model = Salida
