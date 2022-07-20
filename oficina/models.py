@@ -29,7 +29,7 @@ class Sku(models.Model):
     codigo = models.CharField(max_length = 7, unique = True )
     categoria = models.CharField(max_length=20) 
     producto = models.CharField(max_length=100) 
-    proveedor = models.ForeignKey(Proveedor,  on_delete=models.SET_NULL, null= True)
+    proveedor = models.ForeignKey(Proveedor,  on_delete=models.SET_NULL, null= True, blank=True, default='Otro')
     comentario = models.CharField(max_length=200, null=True,blank=True )
     
     def __str__(self):
