@@ -50,7 +50,7 @@ class Ingreso(models.Model):
     creado= models.DateField(auto_now_add=True)
     sku =  models.ForeignKey(Sku,  on_delete=models.SET_NULL, null= True)
     cantidad = models.IntegerField()
-    proveedor =  models.ForeignKey(Proveedor,  on_delete=models.SET_NULL, null= True)
+    proveedor = models.ForeignKey(Proveedor,  on_delete=models.SET_NULL, null= True, blank=True)
     comentario = models.CharField(max_length=200, null=True,blank=True , default='Comentario')
 
     def __str__(self):
