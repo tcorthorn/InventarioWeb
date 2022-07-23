@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Avg, Sum
-from .models import Proveedor, Ingreso, Salida, Sku, Inventario_oficina
+from .models import Proveedor, Ingreso, Salida, Sku, Inventario_oficina, Inventario_aura, Inventario_casa_moda
 from django.views import generic
 from django.db.models import Count, F
 from django.http import HttpResponse
@@ -78,6 +78,14 @@ class OtroListView(generic.ListView):
     queryset = Salida.objects.all().filter(destino__icontains="Otro") 
     template_name = 'oficina/otro_list.html'  # Specify your own template name/location 
 
+
+class Inventario_auraListView(generic.ListView):
+    model = Inventario_aura
+    paginate_by = 10
+
+class Inventario_casa_modaListView(generic.ListView):
+    model = Inventario_casa_moda
+    paginate_by = 10
 
 # Detalle de la Clase
 

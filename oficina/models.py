@@ -128,4 +128,51 @@ class Inventario_oficina(models.Model):
         verbose_name = "Inventario Oficina"
         verbose_name_plural = "Inventario Oficina"
 
-   
+class Inventario_aura(models.Model):
+    actualizado= models.DateField(auto_now_add=True)
+    sku =  models.CharField(max_length=7)
+    categoria =models.CharField(max_length=30)
+    producto = models.CharField(max_length=50)
+    ingresos = models.IntegerField()
+    salidas = models.IntegerField()
+    stock = models.IntegerField()
+    
+    def __str__(self):
+        return self.categoria
+
+    def get_absolute_url(self):
+        """
+        Retorna la url para acceder a una instancia particular de un proveedor.
+        """
+        return reverse('detalle_stock', args=[str(self.id)])
+    class Meta:
+        ordering =['sku']
+
+    class Meta:
+        verbose_name = "Inventario Aura"
+        verbose_name_plural = "Inventario Aura"
+
+class Inventario_casa_moda(models.Model):
+    actualizado= models.DateField(auto_now_add=True)
+    sku =  models.CharField(max_length=7)
+    categoria =models.CharField(max_length=30)
+    producto = models.CharField(max_length=50)
+    ingresos = models.IntegerField()
+    salidas = models.IntegerField()
+    stock = models.IntegerField()
+    sucursal = models.CharField(max_length=30, null=True, blank=True)
+    
+    def __str__(self):
+        return self.categoria
+
+    def get_absolute_url(self):
+        """
+        Retorna la url para acceder a una instancia particular de un proveedor.
+        """
+        return reverse('detalle_stock', args=[str(self.id)])
+    class Meta:
+        ordering =['sku']
+
+    class Meta:
+        verbose_name = "Inventario Casa Moda"
+        verbose_name_plural = "Inventario Casa Moda"

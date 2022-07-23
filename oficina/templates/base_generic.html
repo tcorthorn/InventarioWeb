@@ -88,7 +88,7 @@
           
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Stocks
+              En oficina
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{% url 'busqueda' %}">Por producto</a></li>
@@ -97,6 +97,17 @@
             </ul>
             </li>
 
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                En tiendas
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'inv_aura' %}">Aura</a></li>
+                <li><a class="dropdown-item" href="{% url 'inv_moda' %}">Casa Moda</a></li>
+                <li><a class="dropdown-item" href="{% url 'total' %}">Todos (instantáneo)</a></li>
+              </ul>
+              </li>
           
           <!--
         <form class="d-flex" role="search">

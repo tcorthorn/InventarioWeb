@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2 style="color:blueviolet"> Inventario en Casa Moda</h2>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="">Actualizado</th>
+          <th scope="">SKU</th>
+          <th scope="">Categoría</th>
+          <th scope="">Producto</th>
+          <th scope="">Ingresos</th>
+          <th scope="">Salidas</th>
+          <th scope="">Stock</th>
+          <th scope="">Sucursal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if inventario_casa_moda_list %}
+          {% for k in inventario_casa_moda_list %}
+         <tr>
+           <td>{{ k.actualizado|date:"d-m-y"}}</td>
+           <td> {{ k.sku}} </td>
+           <td>{{k.categoria}}</td>
+           <td>{{k.producto}}</td>
+           <td>{{k.ingresos}}</td>
+           <td>{{k.salidas}}</td>
+           <td>{{k.stock}}</td>
+           <td>{{k.sucursal}}</td>
+         </tr>
+          {% endfor %}
+        {% else %}
+          <p>No hay inventario en Casa Moda</p>
+        {% endif %} 
+      </tbody>
+    </table>
+
+    {% endblock %}

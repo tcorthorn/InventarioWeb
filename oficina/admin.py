@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Proveedor, Sku, Ingreso, Salida, Inventario_oficina
+from .models import Proveedor, Sku, Ingreso, Salida, Inventario_oficina, Inventario_aura, Inventario_casa_moda
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from datetime import date
@@ -11,6 +11,8 @@ class InventResource(resources.ModelResource):
         model = Ingreso
         model = Salida
         model = Inventario_oficina
+        model = Inventario_aura
+        model = Inventario_casa_moda
      
 @admin.register(Proveedor)
 class ProveedorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
@@ -46,4 +48,18 @@ class Inventario_oficinaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('actualizado', 'sku', 'categoria', 'producto', 'ingresos', 'salidas', 'stock')
     list_filter = ('sku','categoria', 'stock')
     resources_class = Inventario_oficina
+    search_fields = ("sku", 'categoria','producto')
+
+@admin.register(Inventario_aura)
+class Inventario_auraAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ('actualizado', 'sku', 'categoria', 'producto', 'ingresos', 'salidas', 'stock')
+    list_filter = ('categoria', 'stock')
+    resources_class = Inventario_aura
+    search_fields = ("sku", 'categoria','producto')
+
+@admin.register(Inventario_casa_moda)
+class Inventario_casa_modaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ('actualizado', 'sku', 'categoria', 'producto', 'ingresos', 'salidas', 'stock','sucursal')
+    list_filter = ('categoria', 'stock')
+    resources_class = Inventario_aura
     search_fields = ("sku", 'categoria','producto')
