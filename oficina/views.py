@@ -23,7 +23,7 @@ def index(request):
     salidas=Salida.objects.all()
     salidas_totales=sum(salidas.values_list('cantidad',flat=True))
 
-    stock= ingresos_totales + salidas_totales
+    stock= ingresos_totales - salidas_totales
 
     # Renderiza la plantilla
     return render(
@@ -120,7 +120,7 @@ def buscar(request):
             ingresos_totales=sum(num_ingresos.values_list('cantidad',flat=True))
             salidas_totales=sum(num_salidas.values_list('cantidad',flat=True))
 
-            stock= ingresos_totales + salidas_totales
+            stock= ingresos_totales - salidas_totales
 
             prod_list =Sku.objects.filter(codigo=producto)
 
